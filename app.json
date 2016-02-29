@@ -7,20 +7,57 @@
 	"icon_512" : "img/icon_128.png",
 	"screenshots" : [ "img/ss1.png", "img/ss2.png"],
     "license" : "Creative Commons Zero",
-    "source" : "https://github.com/propsboard/props-client-js",
-	"version" : "2",
-	"allowedDomains" : [ "media.superweather.com" ],
+    "source" : "https://github.com/propsboard/propsapp-superweather",
+	"version" : "3",
+	"allowedDomains" : [ ],
     "minDisplayInterval" : 3660,
-    "params" : [{
-      "name" : "zip",
-      "type" : "string",
-      "title" : "Zip Code",
-      "placeholder": "e.g. 08215",
-      "description": "Enter the 5 digit zip code for the location you would the forcast to show.",
-      "verify" : "^\\d{5}$",
-      "required" : true,
-      "position" : 0
-    }],
+    "params" : [
+      {
+        "name" : "zip",
+        "type" : "string",
+        "title" : "Zip Code",
+        "placeholder": "e.g. 08215",
+        "description": "Enter the 5 digit zip code for the location you would the forcast to show.",
+        "verify" : "^\\d{5}$",
+        "required" : true,
+        "position" : 0
+      },
+      {
+        "name" : "city",
+        "type" : "string",
+        "title" : "Location Name",
+        "placeholder": "e.g. Philadelphia, PA / Coders Paradise / Mordor",
+        "description": "Enter whatever you want.  Could be the name of the location or name of the office.",
+        "verify" : "^.{2,100}$",
+        "required" : false,
+        "position" : 0
+      },
+      {
+        "name" : "header",
+        "type" : "string",
+        "title" : "Header",
+        "placeholder": "e.g. ACME Co.",
+        "description": "Name of the group that looks at the displays.  Shows at the top left of the weather screen.",
+        "verify" : "^.{1,100}$",
+        "required" : false,
+        "position" : 1
+      },
+      {
+        "name" : "background",
+        "type" : "option",
+        "title" : "Background",
+        "description": "The background image to use for the weather.",
+        "default" : "philly",
+        "options" : [
+          { "name": "Lighthouse", "value": "lighthouse" },
+          { "name": "Hills", "value": "hills" },
+          { "name": "Field", "value": "field" },
+          { "name": "Philly", "value": "philly" }
+        ],
+        "required" : false,
+        "position" : 2
+      }
+    ],
     "requests" : [{
       "type" : "polling",
       "name" : "weatherData",
@@ -43,6 +80,7 @@
     ],
     "images" : "img/",
 	"includes" : [
+      {"name" : "jquery", "path" : "lib/jquery.2.min.js", "type" : "js" },
       {"name" : "angular" , "path" : "lib/angular-1.5.0.min.js", "type" : "js"},
       {"name" : "moment" , "path" : "lib/moment.min.js", "type" : "js"},
       {"name" : "bootstrap", "path" : "lib/bootstrap.min.css", "type" : "css"}

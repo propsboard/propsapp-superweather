@@ -1,6 +1,6 @@
 var app = {
     AppLoad: function(data, app){
-      var weatherInfo = JSON.parse(data.weatherData);
+      $('body').css('backgroundImage','url(img/bgs/'+ app.configValues.background +'.jpg)');
     }
   };
 
@@ -11,15 +11,14 @@ angular.module('myApp', [])
 
       var updateTime = function() {
         $scope.date.tz =
-          moment().format('LTS');
+          moment().format('LT');
+        $scope.date.day =
+          moment().format('dddd, MMM Do');
         $timeout(updateTime, 1000);
       }
 
+      $scope.appConfigValues = window.propsApp.app.configValues;
       $scope.weather = JSON.parse(window.propsApp.data.weatherData);
-      console.log('weather', $scope.weather);
-      //Weather.getWeatherForecast($scope.user.location)
-      //  .then(function(data) {
-      //    $scope.weather.forecast = data;
-      //  });
+
       updateTime();
     });

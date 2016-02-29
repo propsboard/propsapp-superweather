@@ -1,0 +1,24 @@
+{
+  "name": "propsapp-superweather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propsboard/propsapp-superweather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/propsboard/propsapp-superweather/issues"
+  },
+  "homepage": "https://github.com/propsboard/propsapp-superweather#readme"
+}

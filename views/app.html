@@ -1,23 +1,49 @@
 <body>
+<link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <div ng-app="myApp">
 
     <div ng-controller="MainCtrl">
-        <div id="datetime">
-            <h1>{{ date.tz }}</h1>
+        <div class="topgradient">
+            <div class="col-sm-6 top-left-header pull-left">
+                <span ng-if="appConfigValues.header">{{appConfigValues.header}}</span>
+            </div>
+            <div class="col-sm-6 top-right-header pull-right text-right">
+                <sapn ng-if="appConfigValues.city">{{appConfigValues.city}}</sapn>
+                <span>{{date.tz}}</span>
+            </div>
+        </div>
+        <div class="bottomcontainer">
+            <div class="today-container">
+                <div class="row day">
+                    {{ date.day }}
+                </div>
+                <div class="row">
+                    <div class="temp-text today-temp-text">
+                        {{weather.forecast.simpleforecast.forecastday[0].high.fahrenheit}}&deg;
+                    </div>
+
+                    <img class="weather-icon today-weather-icon"
+                            ng-src="./img/icons/{{weather.forecast.simpleforecast.forecastday[0].icon}}.png">
+
+                </div>
+            </div>
+            <div ng-repeat="day in weather.forecast.simpleforecast.forecastday"
+                 ng-show="$index >0"
+                 class="normal-day-container">
+
+                    <span class="normal-day-title">{{ day.date.weekday_short.toUpperCase() }}</span>
+                    <img class="weather-icon normal-day-weather-icon"
+                         ng-src="./img/icons/{{day.icon}}.png">
+                    <div class="temp-text normal-day-temp-text">
+                        {{day.high.fahrenheit}}&deg;
+                    </div>
+
+            </div>
+
+
         </div>
 
-        <div id="forecast">
-            <ul class="row list-unstyled">
-                <li ng-repeat="day in weather.forecast.simpleforecast.forecastday" class="col-md-3">
-                    <span ng-class="{today: $index == 0}">
-                      <img class="{{ day.icon }}" ng-src="{{ day.icon_url }}" />
-                      <h3>{{ day.high.fahrenheit }}</h3>
-                      <h4 ng-if="$index == 0">Now</h4>
-                      <h4 ng-if="$index != 0">{{ day.date.weekday }}</h4>
-                    </span>
-                </li>
-            </ul>
-        </div>
+        <img src="./img/wunderground.png" class="wunderground-logo" />
     </div>
 
 </div>
