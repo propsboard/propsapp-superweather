@@ -16,9 +16,8 @@
         "name" : "zip",
         "type" : "string",
         "title" : "Zip Code",
-        "placeholder": "e.g. 08215",
-        "description": "Enter the 5 digit zip code for the location you would the forcast to show.",
-        "verify" : "^\\d{5}$",
+        "placeholder": "e.g. '08215' (US), 'W11 2BQ' (UK), 'L7J 0A1'(CA)",
+        "description": "Enter the postal code for the location you want the forcast to show.",
         "required" : true,
         "position" : 0
       },
