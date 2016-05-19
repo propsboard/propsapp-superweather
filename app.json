@@ -22,6 +22,18 @@
         "position" : 0
       },
       {
+        "name" : "units",
+        "type" : "option",
+        "title" : "Temp. Scale ",
+        "default" : "fahrenheit",
+        "options" : [
+          { "name": "Fahrenheit", "value": "fahrenheit" },
+          { "name": "Celsius", "value": "celsius" }
+        ],
+        "required" : false,
+        "position" : 0
+      },
+      {
         "name" : "city",
         "type" : "string",
         "title" : "Location Name",

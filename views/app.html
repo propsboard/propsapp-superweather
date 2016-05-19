@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="temp-text today-temp-text">
-                        {{weather.forecast.simpleforecast.forecastday[0].high.fahrenheit}}&deg;
+                        {{(appConfigValues.units === 'fahrenheit') ? weather.forecast.simpleforecast.forecastday[0].high.fahrenheit : weather.forecast.simpleforecast.forecastday[0].high.celsius }}&deg;
                     </div>
 
                     <img class="weather-icon today-weather-icon"
@@ -35,7 +35,7 @@
                     <img class="weather-icon normal-day-weather-icon"
                          ng-src="./img/icons/{{day.icon}}.png">
                     <div class="temp-text normal-day-temp-text">
-                        {{day.high.fahrenheit}}&deg;
+                        {{(appConfigValues.units === 'fahrenheit') ? day.high.fahrenheit : day.high.celsius}}&deg;
                     </div>
 
             </div>
